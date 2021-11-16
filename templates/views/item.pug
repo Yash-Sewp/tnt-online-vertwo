@@ -1,0 +1,29 @@
+extends ../layouts/default
+
+block content
+	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+		article
+			p: a(href='/blog') &larr; back to the blog
+			hr
+			if !data.item
+				h2 Invalid Item.
+			else
+				header
+					h1= data.item.title
+					h5 Posted 
+						if data.item.publishedDate
+							| on #{data.item._.publishedDate.format('MMMM Do, YYYY')} 
+						if data.item.categories && data.item.categories.length
+							| in 
+							each cat, cat_i in data.item.categories
+								a(href='/blog/' + cat.key)= cat.name
+								if cat_i < data.item.categories.length - 1
+									| , 
+								else
+									|  
+						if data.item.author
+							| by #{data.item.author.name.first}
+				.item
+					if data.item.image.exists
+						.image-wrap: img(src=data.item._.image.fit(750,450)).img-responsive
+					!= data.item.content.full
