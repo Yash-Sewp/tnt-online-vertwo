@@ -57,6 +57,7 @@ exports = module.exports = function (app) {
 	// Apis
 	app.get('/allitem', keystone.middleware.api, routes.api.item.list);
 	app.get('/allcategories', keystone.middleware.api, routes.api.category.list);
+	app.get('/allsubcategories', keystone.middleware.api, routes.api.category.list);
 	app.get('/allbrand', keystone.middleware.api, routes.api.brand.list);
 	app.get('/pages', keystone.middleware.api, routes.api.page.list);
 

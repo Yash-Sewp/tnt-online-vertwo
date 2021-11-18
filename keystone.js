@@ -46,7 +46,7 @@ keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	posts: ['items', 'item-categories', 'brands', 'pages'],
+	posts: ['items', 'item-categories', 'item-sub-categories', 'brands'],
 });
 
 // Start Keystone to connect to your database and initialise the web server

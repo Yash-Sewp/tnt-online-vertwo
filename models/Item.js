@@ -23,6 +23,7 @@ Item.add({
 	},
 	sale: { type: Types.Boolean },
 	categories: { type: Types.Relationship, ref: 'ItemCategory', many: false },
+	subcategories: { type: Types.Relationship, ref: 'ItemSubCategory', many: false },
 	brand: { type: Types.Relationship, ref: 'Brand', many: false },
 	views: { type: Number, default: 0 },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },

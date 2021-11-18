@@ -36,6 +36,17 @@ exports.fetchCategory = function (req, res) {
 		});
 	});
 };
+
+exports.fetchSubCategory = function (req, res) {
+	Item.model.find()
+	.where('subcategories', req.params.id)
+	.exec(function(err, items) {
+		if (err) return reject(err);
+		return res.apiResponse({
+			collections: items,
+		});
+	});
+};
 /**
  * Upload a New File
  */
